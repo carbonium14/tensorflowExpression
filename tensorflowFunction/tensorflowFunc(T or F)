@@ -1,0 +1,57 @@
+tf.debugging.assert : true
+tf.math.abs : true
+tf.math.acos : ?(反余弦函数
+tf.math.acosh :  false (反双曲余弦函数 
+tf.math.add : true
+tf.math.add_n : true
+tf.approx_top_k : true
+tf.math.argmax: true
+tf.math.argmin : true
+tf.argsort : ? (排序
+tf.dtypes.as_dtype : true
+tf.strings.as_string : true
+tf.math.asin : ? (反正弦函数
+tf.math.asinh : false (反双曲正弦函数
+ tf.debugging.assert_equal : true
+tf.debugging.assert_greater : true
+tf.debugging.assert_less : true
+tf.debugging.assert_rank : true
+tf.math.atan : ?(反正切函数
+tf.math.atan2 : ?(y/x的反正切
+tf.math.atanh : false (反双曲正切函数
+tf.batch_to_space : false (?
+tf.bitcast : true
+tf.boolean_mask : true
+tf.broadcast_dynamic_shape : true
+tf.broadcast_static_shape : true
+tf.broadcast_to : true
+tf.case : true
+tf.cast : true
+tf.clip_by_global_norm : true
+tf:clip_by_normal : true
+tf.clip_by_value : true
+tf.dtypes.complex : true
+tf.concat : true
+tf.cond : true
+tf.constant : true
+tf.control_dependencies : ? (一系列操作要先完成，这条语句后面的才能继续完成
+tf.convert_to_tensor : true
+tf.math.cos : ?(余弦函数
+tf.math.cosh : false (双曲函数
+tf.math.cumsum : true
+tf.custom_gradient : ? true (定义一个函数，感觉没用
+tf.device : ? true ( 指定在此上下文中创建/执行的操作的设备，感觉没用
+tf.math.divide : true 
+tf.dynamic_partition : true
+tf.dynamic_stitch : true
+tf.edit_distance : true
+tf.linalg.eig : ?true (计算特征分解
+tf.linalg.eigvals : true
+tf.einsum : true
+tf.ensure_shape : true
+tf.math.equal : true
+tf.executing_eagerly : ? false
+tf.math.exp : true
+
+
+
