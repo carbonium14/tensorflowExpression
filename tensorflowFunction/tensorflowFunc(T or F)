@@ -39,8 +39,8 @@ tf.convert_to_tensor : true
 tf.math.cos : ?(余弦函数
 tf.math.cosh : false (双曲函数
 tf.math.cumsum : true
-tf.custom_gradient : ? true (定义一个函数，感觉没用
-tf.device : ? true ( 指定在此上下文中创建/执行的操作的设备，感觉没用
+tf.custom_gradient : ? true (定义一个函数，不适合
+tf.device : ? true ( 指定在此上下文中创建/执行的操作的设备，不适合
 tf.math.divide : true 
 tf.dynamic_partition : true
 tf.dynamic_stitch : true
@@ -52,6 +52,33 @@ tf.ensure_shape : true
 tf.math.equal : true
 tf.executing_eagerly : ? false
 tf.math.exp : true
+tf.expand_dims : true
+tf.extract_volume_patches : true
+tf.eye : true
+tf.fill : true
+tf.fingerprint : ? 指纹生成
+tf.math.floor : true
+tf.foldl : true 将方法fn运用于第一个到最后一个elems解包上
+tf.foldr : true  与foldl计算方向相反
+tf.function : ? 构造一个可调用的可执行程序，该可调用程序执行通过在func中跟踪编译TensorFlow操作而创建TensorFlow图
+tf.gather : true
+tf.gather_nd : true
+tf.get_current_name_scope : true (不适合，返回 current name scope
+tf.get_logger : true (没啥用
+tf.get_static_value : true
+tf.grad_pass_through : （不适合， 用f中提供的正向行为创建一个分级通过的操作。
+tf.gradients : ? (SMT求导数
+tf.math.greater : true
+tf.math.greater_equal : true
+tf.group : （不适合，将传入参数的操作进行分组
+tf.guarantee_const : true （不适合，保证运行时传入的参数一直是const的
+tf.hessians : ?
+tf.histogram_fixed_width : ? (计算直方图
+tf.histogram_fixed_width_bins : ? (计算直方图
+tf.identity : true
+tf.identity_n : true
+
+
 
 
 
