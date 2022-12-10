@@ -3,7 +3,7 @@
 //目前只考虑实数的情况，不考虑复数，复数的方式为a+bi -> √(a^2+b^2)  
 (x>0) and (x) or (x<0) and (-1\*x)
 ## tf.add
-//前两个为一个是张量，一个是常量的相加情况，后面是两个都是张量的情况，只考虑一位数组，不考虑长度不同的情况  
+//前两个为一个是张量，一个是标量的相加情况，后面是两个都是张量的情况，只考虑一位数组，不考虑长度不同的情况  
 //假设输入的两个量是x和y，最终输出的结果放在z里面  
 (len(x)>1 and len(y)==1 and z\[0]=x\[0]+y and z\[1]=x\[1]+y and ... and z\[len(x)-1]=x\[len(x)-1]+y) or   
 (len(y)>1 and len(x)==1 and z\[0]=y\[0]+x and z\[1]=y\[1]+x and ... and z\[len(y)-1]=y\[len(y)-1]+x) or   
@@ -21,23 +21,46 @@
 ## tf.broadcast_to
 ## tf.cast
 ## tf.clip_by_value
+//假设输入的是一位数组x，给定最小值min和最大值max，不考虑多维数组以及多维最大值、最小值  
+((x\[0]<min and x\[0]=min) or (x\[0]>max and x\[0]=max) or (x\[0]>min and x\[0]<max and x\[0])) and   
+((x\[1]<min and x\[1]=min) or (x\[1]>max and x\[1]=max) or (x\[1]>min and x\[1]<max and x\[1])) and ... and   
+((x\[len(x)-1]<min and x\[len(x)-1]=min) or (x\[len(x)-1]>max and x\[len(x)-1]=max) or (x\[len(x)-1]>min and x\[len(x)-1]<max and x\[len(x)-1]))
 ## tf.concat
 ## tf.constant
 ## tf.divide
+//假设输入的两个量是x和y，最终输出的结果放在z里面，按照要求长度要相等，只考虑一维数组，不存在标量  
+(z\[0]=x\[0]/y\[0]) and (z\[1]=x\[1]/y\[1]) and ... and (z\[len(x)-1]=x\[len(x)-1]/y\[len(y)-1])
 ## tf.equal
-## tf.exp
+//假设输入的两个量是x和y，最终输出的结果放在z里面，只考虑一位数组和长度相等的情况  
+((x\[0]==y\[0] and z\[0]=true) or (x\[0]!=y\[0] and z\[0]=false)) and   
+((x\[1]==y\[1] and z\[1]=true) or (x\[1]!=y\[1] and z\[1]=false)) and ... and   
+((x\[len(x)-1]==y\[len(y)-1] and z\[len(x)-1]=true) or (x\[len(x)-1]!=y\[len(y)-1] and z\[len(x)-1]=false))
 ## tf.expand_dims
 ## tf.eye
 ## tf.fill
+//假设输入的张量形状是l，输入要填充的数n，返回张量x  
+x\[0]\[0]...\[0]\[0]=n and x\[0]\[0]...\[0]\[1]=n and ... and x\[0]\[0]...\[0]\[l\[len(l)-1]]=n and   
+x\[0]\[0]...\[1]\[0]=n and x\[0]\[0]...\[1]\[1]=n and ... and x\[0]\[0]...\[1]\[l\[len(l)-1]]=n and ... and  
+x\[len(l)-len(l)]\[0]...\[0]\[0]=n and x\[len(l)-len(l)]\[0]...\[0]\[1]=n and ... and x\[len(l)-len(l)]\[len(l)-(len(l)-1)]...\[l\[len(l)-2]]\[l\[len(l)-1]]=n
 ## tf.gather
 ## tf.gather_nd
 ## tf.greater
+//假设输入的两个量是x和y，最终输出的结果放在z里面，只考虑一位数组和长度相等的情况  
+((x\[0]>y\[0] and z\[0]=true) or (x\[0]<=y\[0] and z\[0]=false)) and   
+((x\[1]>y\[1] and z\[1]=true) or (x\[1]<=y\[1] and z\[1]=false)) and ... and   
+((x\[len(x)-1]>y\[len(y)-1] and z\[len(x)-1]=true) or (x\[len(x)-1]<=y\[len(y)-1] and z\[len(x)-1]=false))
 ## tf.greater_equal
+//假设输入的两个量是x和y，最终输出的结果放在z里面，只考虑一位数组和长度相等的情况  
+((x\[0]>=y\[0] and z\[0]=true) or (x\[0]<y\[0] and z\[0]=false)) and   
+((x\[1]>=y\[1] and z\[1]=true) or (x\[1]<y\[1] and z\[1]=false)) and ... and   
+((x\[len(x)-1]>=y\[len(y)-1] and z\[len(x)-1]=true) or (x\[len(x)-1]<y\[len(y)-1] and z\[len(x)-1]=false))
 ## tf.math.bincount
 ## tf.math.ceil
 ## tf.math.count_nonzero
 ## tf.math.cumsum
 ## tf.math.divide_no_nan
+//假设输入的两个量是x和y，最终输出的结果放在z里面，按照要求长度要相等，不存在标量  
+(z\[0]=x\[0]/y\[0]) and (z\[1]=x\[1]/y\[1]) and ... and (z\[len(x)-1]=x\[len(x)-1]/y\[len(y)-1])
 ## tf.math.floor
 ## tf.math.log
 ## tf.math.negative
@@ -60,6 +83,10 @@
 ## tf.minimum
 ## tf.multiply
 ## tf.not_equal
+//假设输入的两个量是x和y，最终输出的结果放在z里面，只考虑一位数组和长度相等的情况  
+((x\[0]!=y\[0] and z\[0]=true) or (x\[0]==y\[0] and z\[0]=false)) and   
+((x\[1]!=y\[1] and z\[1]=true) or (x\[1]==y\[1] and z\[1]=false)) and ... and   
+((x\[len(x)-1]!=y\[len(y)-1] and z\[len(x)-1]=true) or (x\[len(x)-1]==y\[len(y)-1] and z\[len(x)-1]=false))
 ## tf.one_hot
 ## tf.ones
 ## tf.ones_like
