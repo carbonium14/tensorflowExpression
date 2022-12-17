@@ -1,4 +1,4 @@
-## 目前忽略函数：##
+## 目前忽略函数: ##
 * assert相关函数
 * 基础类型转化相关函数
 
@@ -47,7 +47,7 @@ or ((m = n) and (((x[m-1] = y[n-1] or x[m-1] = 1) and z[n-1] = y[n-1]) or (y[n-1
 ## tf.cond ##
 ```  
 输入谓词pred，正确函数true_func，错误函数false_func，返回函数result
-(pred and result = true_func) or (-pred and result = false_func)
+(pred and result = true_func) or (pred = false and result = false_func)
 ```
 
 ## tf.math.cumsum ##
